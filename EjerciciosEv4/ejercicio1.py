@@ -1,25 +1,6 @@
-'''producto = {
-    "Mouse":[10,15000],
-    "Teclado" : [5,25000],
-    "Monitor" : [3,180000]
-}'''
-def agregar_producto(productos):
-    nombre = input("Nombre del producto: ").strip()
+import funciones as fn
 
-    if nombre == "":
-        print("El nombre no puede ser vacío")
-        return
-    
-    if nombre in productos:
-        print("El producto ya existe!")
-        return
-
-    stock = int(input("Ingrese stock: "))
-    precio = int(input("Ingrese precio $: "))
-
-    productos[nombre] = [stock,precio]
-    print("Producto agregado correctamente!")
-
+# codigo ppal
 
 productos = {} #diccionario vacío
 
@@ -39,17 +20,17 @@ while True:
             print("Debe ingresar un opción válida (1-5), intente nuevamente")
 
     if op == 1 :
-        agregar_producto(productos)
+        fn.agregar_producto(productos)
         
     elif op == 2:
-        #mostrar_productos(productos)
-        print(productos)
+        fn.mostrar_productos(productos)
+        #print(productos)
     elif op == 3 :
-        #buscar_producto(productos)
-        print("buscar")
+        fn.buscar_producto(productos)
+        #print("buscar")
     elif op == 4:
-        #producto_mas_caro(productos)
-        print("más caro")
+        fn.producto_mas_caro(productos)
+        #print("más caro")
     elif op == 5:
         print("Fin del programa")
         break
