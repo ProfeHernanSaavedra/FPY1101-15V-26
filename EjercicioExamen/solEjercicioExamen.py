@@ -26,11 +26,15 @@ def validar_sigla_formato(sigla):
     return sigla.upper() and sigla.isalpha() and len(sigla) >= 2 and len(sigla) <= 5
     # return True
 
+    # len(sigla) >= 2 and len(sigla) <= 5    o    2 <= len(sigla) <= 5
+
 def validar_sigla_no_existe(sigla,consolas):
     if sigla not in consolas:
         return True
     else:
         return False
+
+    # return sigla not in consolas
 
 def validar_nombre(nombre):
 
@@ -58,7 +62,9 @@ def validar_fabricante(fabricante):
     return 2 <= len(fabricante.strip()) <= 30
 
 def agregar_consola(consolas,ventas):
+
     sigla = input("Ingrese sigla (2 a 5 letras mayúsculas)").strip()
+
     while not validar_sigla_formato(sigla):
         print("Error de sigla, debe tener 2 a 5 letras mayúsculas, vuelva a intentar")
         sigla = input("Sigla: ") .strip()
@@ -68,26 +74,31 @@ def agregar_consola(consolas,ventas):
         return
 
     nombre = input("Ingrese el nombre: (3 y 40 caracteres) : ").strip()
+
     while not validar_nombre(nombre):
         print("Error, nombre no válido, intente nuevamente")
         nombre = input("Ingrese el nombre: (3 y 40 caracteres) : ").strip()
 
     fabricante = input("Fabricante(2 a 30 caracteres): ").strip()
+
     while not validar_fabricante(fabricante) :
         print("Error, fabricante no válido, intente nuevamente")
         fabricante = input("Fabricante(2 a 30 caracteres): ").strip()
 
     añoStr = input("Año de lanzamiento(1972-2025): ").strip()
+
     while not validar_año(añoStr):
         print("Error, año no válido!, intente nuevamente")
         añoStr = input("Año de lanzamiento(1972-2025): ").strip()
 
     precioStr = input("Ingrese precio: ").strip()
+
     while not validar_precio(precioStr):
         print("Error, debe ser mayor a cero, intente nuevamente")
         precioStr = input("Ingrese precio: ").strip()
 
     stockStr = input("Ingrese Stock: ").strip()
+    
     while not validar_stock(stockStr):
         print("Error, deber ser mayor a cero, intente nuevamente")
         stockStr = input("Ingrese Stock: ").strip()
